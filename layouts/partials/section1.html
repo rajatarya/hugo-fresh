@@ -18,15 +18,19 @@
             <div class="card-title">
               <h4>{{ .title }}</h4>
             </div>
-            <div class="card-icon">
-                <img src="{{ printf "/images/illustrations/icons/%s.svg" .icon | relURL }}">
-            </div>
+            {{ if .icon }}
+              <div class="card-icon">
+                <img src="{{ printf "/images/icons/%s.svg" .icon | relURL }}">
+              </div>
+            {{ end }}
             <div class="card-text">
                 <p>{{ .text }}</p>
             </div>
-            <div class="card-action">
-              <a href="{{ .url }}" class="button btn-align-md accent-btn raised">{{ .buttonText }}</a>
-            </div>
+            {{ if .url }}
+              <div class="card-action">
+                <a href="{{ .url }}" class="button btn-align-md accent-btn raised">{{ .buttonText }}</a>
+              </div>
+            {{ end }}
           </div>
         </div>
         {{- end }}
