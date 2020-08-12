@@ -8,21 +8,28 @@
         <h1 class="title section-title">{{ $title }}</h1>
         <div class="divider"></div>
       </div>
-      <div class="column is-7 mt-60">
-        <div class="media-content mt-50">
-        {{- range $categories }}
-            <h2 class="subtitle">{{ .name }}</h2>
+    </div>
+  </div>
+
+{{- range $categories }}
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <article class="tile is-child">
+    </article>
+  </div>
+  <div class="tile is-parent is-10">
+    <article class="tile is-child box">
+      <p class="subtitle"><a href="/#{{ .name }}" class="has-text-black">{{ .name }}</a></p>
+      <div class="content">
             {{- range .questions }} 
-            <div class="content">
               <p>
                 <div class="icon-box-title"><b>{{ .question | markdownify }}</b></div>
                 <div class="icon-box-text">{{ .answer | markdownify }}</div>
               </p>
-            </div>
-            {{- end }}
-        {{- end }}
-        </div>
+            {{ end }}
       </div>
-    </div>
+    </article>
   </div>
+</div>
+{{ end }}
 </section>

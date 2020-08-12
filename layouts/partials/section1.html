@@ -23,15 +23,29 @@
                 <img src="{{ printf "/images/icons/%s.svg" .icon | relURL }}">
               </div>
             {{ end }}
-            <div class="card-text">
+            <div class="">
+                <br />
                 <p>{{ .text }}</p>
             </div>
+          </div>
+
+<div class="feature-card revealOnScroll delay-4" data-animation="fadeInLeft">
+  <div class="card-content">
+    <div class="content">
+      Sample feedback: <br />
+              {{- range .examples }} 
+                <span class="icon"><i class="far fa-square"></i></span> 
+                <i>{{ .example }}</i><br />
+              {{ end }}
+    </div>
+  </div>
             {{ if .url }}
-              <div class="card-action">
+              <div class="has-text-centered card-action">
                 <a href="{{ .url }}" class="button btn-align-md accent-btn raised">{{ .buttonText }}</a>
               </div>
             {{ end }}
-          </div>
+</div>
+
         </div>
         {{- end }}
       </div>
