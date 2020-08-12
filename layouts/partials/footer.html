@@ -4,6 +4,7 @@
 {{- $socialMedia := index $footer "socialmedia" }}
 {{- $bulmaLogo   := index $footer "bulmalogo" }}
 {{- $socialMediaTitle    := index $footer "socialmediatitle" }}
+{{- $colophon    := index $footer "colophon" }}
 <footer class="footer footer-dark">
   <div class="container">
     <div class="columns">
@@ -49,7 +50,11 @@
               <img src="{{ "/images/logos/made-with-bulma.png" | relURL }}" alt="Made with Bulma" width="128" height="24">
             </a>
             {{- end }}
-            <div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a>, <a href="https://creativemarket.com/eucalyp" title="Eucalyp">Eucalyp</a>, <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a>, <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a>, <a href="https://smashicons.com/" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            {{- if $colophon }}
+              <div class="has-text-light is-size-7">
+                {{ $colophon | markdownify }}
+              </div>
+            {{- end }}
           </div>
         </div>
       </div>
