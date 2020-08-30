@@ -5,11 +5,10 @@
 <section id="reviewer" class="section is-medium">
   <div class="container">
     <div class="columns">
-      <div class="column is-centered-tablet-portrait">
-        <h1 class="title section-title">{{ $title }}</h1>
-        <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
-        <div class="divider"></div>
-      </div>
+    <div class="title-wrapper has-text-centered">
+      <h2 class="title is-2">{{ $title }}</h2>
+      <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
+      <div class="divider is-centered"></div>
     </div>
   </div>
 
@@ -25,9 +24,9 @@
     </div>
     <article class="tile is-child">
       <div class="content">
-          <figure class="image is-96x96">
+          <figure class="image is-128x128">
             <p class="image">
-              <img src="{{ printf "/images/icons/%s.svg" .icon | relURL }}">
+              <img src="{{ printf "/images/icons/%s" .icon | relURL }}">
             </p>
           </figure>
       </div>

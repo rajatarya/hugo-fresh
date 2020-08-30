@@ -1,35 +1,37 @@
 {{- $section6 := .Site.Params.section6 }}
 {{- $title    := index $section6 "title" }}
+{{- $icon     := index $section6 "icon" }}
 {{- $categories := index $section6 "categories" }}
 <section id="faq" class="section is-medium">
   <div class="container">
     <div class="columns">
-      <div class="column is-centered-tablet-portrait">
-        <h1 class="title section-title">{{ $title }}</h1>
-        <div class="divider"></div>
+      <div class="title-wrapper has-text-centered">
+        <h2 class="title is-2">{{ $title }}</h2>
+        <div class="divider is-centered"></div>
+        <p>&nbsp;</p>
       </div>
     </div>
   </div>
 
 {{- range $categories }}
-<div class="tile is-ancestor">
-  <div class="tile is-parent">
-    <article class="tile is-child">
-    </article>
+  <div class="tile is-ancestor">
+    <div class="tile is-parent">
+      <article class="tile is-child">
+      </article>
+    </div>
+    <div class="tile is-parent is-10">
+      <article class="tile is-child box">
+        <p class="subtitle"><a href="/#{{ .name }}" class="has-text-black">{{ .name }}</a></p>
+        <div class="content">
+              {{- range .questions }} 
+                <p>
+                  <div class="icon-box-title"><b>{{ .question | markdownify }}</b></div>
+                  <div class="icon-box-text">{{ .answer | markdownify }}</div>
+                </p>
+              {{ end }}
+        </div>
+      </article>
+    </div>
   </div>
-  <div class="tile is-parent is-10">
-    <article class="tile is-child box">
-      <p class="subtitle"><a href="/#{{ .name }}" class="has-text-black">{{ .name }}</a></p>
-      <div class="content">
-            {{- range .questions }} 
-              <p>
-                <div class="icon-box-title"><b>{{ .question | markdownify }}</b></div>
-                <div class="icon-box-text">{{ .answer | markdownify }}</div>
-              </p>
-            {{ end }}
-      </div>
-    </article>
-  </div>
-</div>
 {{ end }}
 </section>
