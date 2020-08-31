@@ -19,32 +19,34 @@
               <h4>{{ .title }}</h4>
             </div>
             {{ if .icon }}
-              <div class="card-icon">
-                <img src="{{ printf "/images/icons/%s.svg" .icon | relURL }}">
-              </div>
+            <div class="card-icon">
+              <img src="{{ printf "/images/icons/%s.svg" .icon | relURL }}">
+            </div>
             {{ end }}
             <div class="">
-                <br />
-                <p>{{ .text }}</p>
+              <br />
+              <p>{{ .text }}</p>
             </div>
           </div>
 
-<div class="feature-card revealOnScroll delay-4" data-animation="fadeInLeft">
-  <div class="card-content">
-    <div class="content">
-      Samples: <br />
-              {{- range .examples }} 
-                <span class="icon" style="color:#7590CD;"><i class="fa fa-angle-right"></i></span> 
-                <i>{{ .example }}</i><br />
-              {{ end }}
-    </div>
-  </div>
-            {{ if .url }}
-              <div class="has-text-centered card-action">
-                <a href="{{ .url }}" class="button btn-align-md accent-btn raised">{{ .buttonText }}</a>
+          <div class="feature-card revealOnScroll delay-4" data-animation="fadeInLeft">
+            <div class="card-content">
+              <div class="content">
+                <p>Such as:</p>
+                {{- range .examples }}
+                <p>
+                  <span class="icon" style="color:#7590CD;"><i class="fa fa-angle-right"></i></span>
+                  <i class="is-clearfix">"{{ .example }}"</i>
+                </p>
+                {{ end }}
               </div>
+            </div>
+            {{ if .url }}
+            <div class="has-text-centered card-action">
+              <a href="{{ .url }}" class="button btn-align-md accent-btn raised">{{ .buttonText }}</a>
+            </div>
             {{ end }}
-</div>
+          </div>
 
         </div>
         {{- end }}
