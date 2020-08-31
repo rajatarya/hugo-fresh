@@ -1,4 +1,5 @@
+{{- $divider := .Site.Params.divider }}
 
 <figure class="image container">
-  <img src="{{ printf "/images/divider.png" | relURL }}" alt="divider">
+  <img src="{{ printf "/images/%s" $divider | relURL }}" alt="divider" />
 </figure>
