@@ -12,40 +12,45 @@
     </div>
   </div>
 
-{{- range $features }}
-<div class="tile is-ancestor">
-  <div class="tile is-parent is-vertical">
-    <div class="tile">
-    </div>
-  </div>
-  <div class="tile is-parent is-vertical">
-    <div class="tile">
-      <!-- top tile -->
-    </div>
-    <article class="tile is-child">
-      <div class="content">
-          <figure class="image is-128x128">
-            <p class="image">
-              <img src="{{ printf "/images/icons/%s" .icon | relURL }}">
-            </p>
-          </figure>
+  {{- range $features }}
+  <div class="tile is-ancestor">
+    <div class="tile is-parent is-vertical">
+      <div class="tile">
       </div>
-    </article>
-    <div class="tile">
-      <!-- bottom tile -->
     </div>
-  </div>
-  <div class="tile is-parent is-9">
-    <article class="tile is-child box">
-      <p class="subtitle">{{ .title | markdownify }}</p>
-      <div class="content">
-              <p>
-                <div class="icon-box-text">{{ .text | markdownify }}</div>
+    <div class="tile is-parent is-vertical">
+      <div class="tile">
+        <!-- top tile -->
+      </div>
+      <article class="tile is-child">
+        <div class="content">
+            <figure class="image is-128x128">
+              <p class="image">
+                <img src="{{ printf "/images/icons/%s" .icon | relURL }}">
               </p>
+            </figure>
+        </div>
+      </article>
+      <div class="tile">
+        <!-- bottom tile -->
       </div>
-    </article>
+    </div>
+    <div class="tile is-parent is-9">
+      <article class="tile is-child box">
+        {{ if .image }}
+          <figure class="image is-128x128 is-pulled-right">
+            <img src="{{ printf "/images/%s" .image | relURL }}" />
+          </figure>
+        {{ end }}
+        <p class="subtitle">{{ .title | markdownify }}</p>
+        <div class="content">
+            <p class="icon-box-text">
+              {{ .text | markdownify }}
+            </p>
+        </div>
+      </article>
+    </div>
   </div>
-</div>
-{{ end }}
+  {{ end }}
 
 </section>
